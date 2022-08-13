@@ -2,7 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import { nanoid } from "nanoid";
 import { Button } from "style/style";
-import s from './FormikContactForm.module.css'
+import s from './FormikContactForm.module.css';
 //import styled from "styled-components";
 
 
@@ -35,12 +35,3 @@ export const FormikContactForm = (props) => {
     </>)
 }
 
-/*
-const FormikContactFieldS = styled.input`
-    width: 100%;
-`
-const FormikFormS = styled.div`
-    padding-left: ${p => p.theme.shape[2]}px;
-    padding-left: ${p => p.theme.shape[2]}px;
-
-`*/

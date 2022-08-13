@@ -1,6 +1,7 @@
 import { Form, Formik, ErrorMessage, Field } from "formik";
 import * as yup from 'yup';
 import React from "react";
+import propTypes from 'prop-types';
 //import styled from "styled-components";
 
 const schemaFiler = yup.object({
@@ -19,15 +20,16 @@ export const Filter = (props) => {
 
     return (<>
         <h2>Search by name</h2>
-
-        <Formik initialValues={initialValues} onSubmit={getValues} validationSchema={schemaFiler}
->
+        <Formik initialValues={initialValues} onSubmit={getValues} validationSchema={schemaFiler}>
             <Form>
                 <Field type="text" placeholder="Search" name="filter" id='searchName' />
                 <ErrorMessage name="filter" />
             </Form>
-            
         </Formik>
     </>)
+}
+
+Filter.propTypes = {
+    props: propTypes.func,
 }
 

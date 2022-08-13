@@ -1,7 +1,11 @@
+
+//not in use
+
 import React from "react";
 import { Component } from "react";
 import { nanoid } from 'nanoid';
 import { StyledForm, StyledLabel, StyledInput, Button } from "style/style";
+//import propTypes from 'prop-types';
 
 export class ContactForm extends Component { ///проп - функция formSubmitData
     state = {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "style/style";
+//import propTypes from "prop-types";
 
 export const ContactList = ({ data, children, onDeleteItem }) => {
     const deleteContact = (e) => {
@@ -19,3 +20,10 @@ export const ContactList = ({ data, children, onDeleteItem }) => {
     </>)
 }
  
+/*ContactList.propTypes = {
+    data: propTypes.shape({
+        name: propTypes.string(),
+        number: propTypes.string(),
+        onDeleteItem: propTypes.func(),
+    })
+}*/
