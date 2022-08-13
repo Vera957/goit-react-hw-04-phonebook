@@ -14,7 +14,7 @@ export class App extends Component {
 
   formSubmitData = (data) => {
     console.log(data)
-    const noPass = this.state.contacts.filter(item => item.name === data.name);
+    const noPass = this.state.contacts.filter(item => item.name.toLowerCase() === data.name.toLowerCase());
     noPass.length < 1 ?
       this.setState(prevState => ({
         contacts: [...prevState.contacts, data]
