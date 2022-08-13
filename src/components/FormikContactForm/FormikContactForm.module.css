@@ -1,0 +1,13 @@
+.labelFormik {
+    width: 100%;
+    display: flex;
+}
+
+.fieldFormik {
+    min-width: 400px;
+    margin-left: auto;
+}
+
+Form{
+    column-gap: 10px;
+}
