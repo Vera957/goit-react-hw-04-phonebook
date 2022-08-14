@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { nanoid } from "nanoid";
 import { Button } from "style/style";
 import s from './FormikContactForm.module.css';
-//import styled from "styled-components";
+import propTypes from 'prop-types'
 
 
 export const FormikContactForm = (props) => {
@@ -35,3 +35,6 @@ export const FormikContactForm = (props) => {
     </>)
 }
 
+FormikContactForm.propTypes = {
+    onNewVal: propTypes.func,
+}

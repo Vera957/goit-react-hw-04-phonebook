@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-//import { ContactForm } from "./ContactForm";
 import { ContactList } from "./ContactList";
 import { Filter } from "./Filter";
 import { Box } from "./Box";
@@ -13,7 +12,6 @@ export class App extends Component {
   }
 
   formSubmitData = (data) => {
-    console.log(data)
     const noPass = this.state.contacts.filter(item => item.name.toLowerCase() === data.name.toLowerCase());
     noPass.length < 1 ?
       this.setState(prevState => ({
@@ -27,10 +25,16 @@ export class App extends Component {
     })
   }
 
-  onDeleteItem = (data) => {
-    this.setState({contacts: data})
+  deleteContact = (id) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(item => item.id !== id),
+    }))
   }
 
+   filteredList = contacts =>  this.state.filter === '' ?
+      contacts :
+      contacts.filter(item => item.name.includes(this.state.filter));
+  
   render() {
     const { contacts } = this.state;
 
@@ -45,14 +49,10 @@ export class App extends Component {
         mr='auto'
       >
         <FormikContactForm onNewVal={this.formSubmitData} />
-      {/*<ContactForm
-        onSubmit={this.formSubmitData}
-    />*/}
-        <ContactList data={this.state.filter === '' ?
-        contacts :
-        contacts.filter(item => item.name.includes(this.state.filter))}
-        onDeleteItem={this.onDeleteItem}>
-        <Filter filterContactsName={this.filterContactsName} />
+        <ContactList
+          data={this.filteredList(contacts)}
+          deleteContact={this.deleteContact}>
+          <Filter filterContactsName={this.filterContactsName} />
         </ContactList>
       </Box>)
   }

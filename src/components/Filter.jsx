@@ -2,7 +2,6 @@ import { Form, Formik, ErrorMessage, Field } from "formik";
 import * as yup from 'yup';
 import React from "react";
 import propTypes from 'prop-types';
-//import styled from "styled-components";
 
 const schemaFiler = yup.object({
     filter: yup.string().min(1).max(16),
