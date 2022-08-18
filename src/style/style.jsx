@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { Field } from "formik";
 
 export const StyledLabel = styled.label`
     margin-bottom: ${p => p.theme.space[2]}px;
@@ -31,8 +32,40 @@ export const Button = styled.button`
     border: none;
     color: ${p => p.theme.colors.white};
     max-width: 100px;
-    align-self: flex-end;
+    margin-left: auto;
     &:hover, &:focus{
         transform: scale(1.1);
     }
+`
+export const ErrorSpan = styled.span`
+    display: block;
+    height: ${p=>p.theme.space[5]}px;
+    color: ${p => p.theme.colors.danger};
+    font-size: ${p => p.theme.fontSizes.xs};
+    margin-left: auto;
+    justify-content: flex-end;
+`
+
+export const ListItem = styled.li`
+    display: flex;
+    justify-content: space-between;
+    background-color: #e7e1e1;
+    padding: ${p=>p.theme.space[2]}px;
+    &:first-child{
+        margin-top: ${p => p.theme.space[3]}px;
+        }
+    &:nth-of-type(2n){
+        background: lightgrey;
+    }
+`
+
+export const StyledField = styled(Field)`
+    border-radius: ${p => p.theme.radii.normal};
+    padding: ${p => p.theme.space[2]}px;
+    outline: none;
+    border-color: ${p => p.theme.colors.primary};
+    &:hover, &:focus{
+        border-color: ${p=>p.theme.colors.accent};
+    }
+    
 `

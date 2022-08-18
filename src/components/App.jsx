@@ -4,6 +4,7 @@ import { ContactList } from "./ContactList";
 import { Filter } from "./Filter";
 import { Box } from "./Box";
 import { FormikContactForm } from "./FormikContactForm/FormikContactForm";
+import { GlobalStyle } from "GlobalStyle";
 
 export class App extends Component {
   state = {
@@ -39,6 +40,7 @@ export class App extends Component {
     const { contacts } = this.state;
 
     return (
+      
       <Box
         m={4}
         p={4}
@@ -47,14 +49,15 @@ export class App extends Component {
         maxWidth='500px'
         ml='auto'
         mr='auto'
-      >
+      ><GlobalStyle />
         <FormikContactForm onNewVal={this.formSubmitData} />
         <ContactList
           data={this.filteredList(contacts)}
           deleteContact={this.deleteContact}>
           <Filter filterContactsName={this.filterContactsName} />
         </ContactList>
-      </Box>)
+        </Box>
+      )
   }
 }
 
