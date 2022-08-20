@@ -6,10 +6,23 @@ import { Box } from "./Box";
 import { FormikContactForm } from "./FormikContactForm/FormikContactForm";
 import { GlobalStyle } from "GlobalStyle";
 
+const contacts = 'contacts';
+
 export class App extends Component {
   state = {
     contacts: [],
     filter: ''
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const savedContacts = JSON.stringify(this.state.contacts)
+    localStorage.setItem(contacts, savedContacts)
+  }
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem(contacts);
+    const parsedsavedContacts = JSON.parse(savedContacts)
+    this.setState({ contacts: parsedsavedContacts })
   }
 
   formSubmitData = (data) => {
