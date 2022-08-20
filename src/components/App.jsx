@@ -15,14 +15,16 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if(prevState.contacts.length !== this.state.contacts.length){
     const savedContacts = JSON.stringify(this.state.contacts)
-    localStorage.setItem(contacts, savedContacts)
+    localStorage.setItem(contacts, savedContacts)}
   }
 
   componentDidMount() {
+    if(localStorage.getItem(contacts) !== null){
     const savedContacts = localStorage.getItem(contacts);
     const parsedsavedContacts = JSON.parse(savedContacts)
-    this.setState({ contacts: parsedsavedContacts })
+    this.setState({ contacts: parsedsavedContacts })}
   }
 
   formSubmitData = (data) => {
@@ -51,9 +53,7 @@ export class App extends Component {
   
   render() {
     const { contacts } = this.state;
-
-    return (
-      
+    return (   
       <Box
         m={4}
         p={4}
