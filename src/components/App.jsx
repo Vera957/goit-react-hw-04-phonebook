@@ -1,10 +1,10 @@
 import React from "react";
 import { Component } from "react";
 import { ContactList } from "./ContactList";
-import { Filter } from "./Filter";
 import { Box } from "./Box";
 import { FormikContactForm } from "./FormikContactForm/FormikContactForm";
 import { GlobalStyle } from "GlobalStyle";
+import { Field2 } from './Filter2/Filter2';
 
 const contacts = 'contacts';
 
@@ -49,7 +49,9 @@ export class App extends Component {
 
    filteredList = contacts =>  this.state.filter === '' ?
       contacts :
-      contacts.filter(item => item.name.includes(this.state.filter));
+    contacts.filter(item => item.name.includes(this.state.filter));
+  
+  show = (data) => this.setState({filter: data})
   
   render() {
     const { contacts } = this.state;
@@ -67,7 +69,8 @@ export class App extends Component {
         <ContactList
           data={this.filteredList(contacts)}
           deleteContact={this.deleteContact}>
-          <Filter filterContactsName={this.filterContactsName} />
+          {/* <Filter filterContactsName={this.filterContactsName} />*/}
+          <Field2 onChange={this.show} />
         </ContactList>
         </Box>
       )

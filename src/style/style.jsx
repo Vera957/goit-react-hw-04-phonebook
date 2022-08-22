@@ -39,7 +39,7 @@ export const Button = styled.button`
 `
 export const ErrorSpan = styled.span`
     display: block;
-    height: ${p=>p.theme.space[5]}px;
+    height: ${p => p.theme.space[5]}px;
     color: ${p => p.theme.colors.danger};
     font-size: ${p => p.theme.fontSizes.xs};
     margin-left: auto;
@@ -50,7 +50,7 @@ export const ListItem = styled.li`
     display: flex;
     justify-content: space-between;
     background-color: #e7e1e1;
-    padding: ${p=>p.theme.space[2]}px;
+    padding: ${p => p.theme.space[2]}px;
     &:first-child{
         margin-top: ${p => p.theme.space[3]}px;
         }
@@ -65,7 +65,16 @@ export const StyledField = styled(Field)`
     outline: none;
     border-color: ${p => p.theme.colors.primary};
     &:hover, &:focus{
-        border-color: ${p=>p.theme.colors.accent};
+        border-color: ${p => p.theme.colors.accent};
     }
-    
+`
+
+export const StyledInputTwo = styled.input`
+    border-radius: ${p => p.theme.radii.normal};
+    padding: ${p => p.theme.space[2]}px;
+    outline: none;
+    border-color: ${p => p.theme.colors.primary};
+    &:hover, &:focus{
+        border-color: ${p => p.theme.colors.accent};
+    } 
 `
